@@ -15,7 +15,6 @@ export const LimitSchema = z.coerce.number().int().positive().max(LIMIT_MAX);
 export const OffsetSchema = z.coerce
   .number()
   .int()
-  .positive()
   .min(0)
   .max(OFFSET_MAX);
 
@@ -31,7 +30,6 @@ export function parseLimitOffset(
 ): LimitOffset | null {
   let limit = LIMIT_DEFAULT;
   let offset = OFFSET_DEFAULT;
-
   try {
     if (requestedLimit) {
       limit = LimitSchema.parse(requestedLimit);

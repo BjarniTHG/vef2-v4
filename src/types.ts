@@ -15,7 +15,6 @@ export type Paginated<T> = {
   offset: number;
 };
 
-// TODO should we expose IDs?
 
 export type Category = {
   id: number;
